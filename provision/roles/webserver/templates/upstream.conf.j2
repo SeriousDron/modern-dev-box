@@ -1,0 +1,3 @@
+upstream {{ item.host }} {
+    server unix:/run/php/{{ item.host }}-fpm.sock;
+}

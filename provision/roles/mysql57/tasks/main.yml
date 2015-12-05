@@ -6,4 +6,4 @@
   apt_repository: repo='deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7' state=present
 
 - name: Install mysql
-  apt: name=mysql-server state=present update_cache=yes
+  apt: name=mysql-server state=present

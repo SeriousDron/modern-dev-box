@@ -3,7 +3,10 @@
   connection: local
   roles:
     - php70
+    - webserver
     - mysql57
-  tasks:
-  - name: install nginx
-    apt: name=nginx state=present
+
+  vars:
+    php_hosts:
+    symfony_hosts:
+      - {host: "quotes.dev", path: "src/"}
