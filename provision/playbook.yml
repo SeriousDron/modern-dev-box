@@ -1,0 +1,9 @@
+- name: Install nginx and PHP 7 on localhost
+  hosts: 127.0.0.1
+  connection: local
+  roles:
+    - php70
+    - mysql57
+  tasks:
+  - name: install nginx
+    apt: name=nginx state=present

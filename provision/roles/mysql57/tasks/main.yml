@@ -1,0 +1,9 @@
+---
+- name: Add mysql release key
+  apt_key: keyserver=pgp.mit.edu id=8c718d3b5072e1f5 state=present
+
+- name: Add mysql repository
+  apt_repository: repo='deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7' state=present
+
+- name: Install mysql
+  apt: name=mysql-server state=present update_cache=yes
