@@ -4,3 +4,13 @@
 - name: upstream PHP 7 config
   template: src=upstream.conf.j2 dest=/etc/nginx/conf.d/upstream-{{ item.host }}.conf
   with_items: "{{ symfony_hosts }}"
+
+- name: nginx hosts files
+  template: src=symfony.conf.j2 dest=/etc/nginx/sites-available/{{ item.host }}
+  with_items: "{{ symfony_hosts }}"
+
+- name: link nginx "$name" vhost in sites-enabled
+  action: file src=/etc/nginx/sites-available/{{ item.host }} dest=/etc/nginx/sites-enabled/{{ item.host }} state=link
+  with_items: "{{ symfony_hosts }}"
+  notify:
+    - restart nginx

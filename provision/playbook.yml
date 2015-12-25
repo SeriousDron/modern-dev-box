@@ -9,4 +9,4 @@
   vars:
     php_hosts:
     symfony_hosts:
-      - {host: "quotes.dev", path: "src/"}
+      - {host: "quotes.dev", path: "quotes.dev/public"}
